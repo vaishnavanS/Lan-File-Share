@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1 movie perday keeps depression away</title>
+    <title>LAN File Share - Quick sharing over Wi-Fi</title>
     <style>
         body {
             font-family: sans-serif;
             padding: 20px;
+            margin: 0;
+            background-color: #f0f2f5;
         }
 
         .container {
@@ -24,6 +26,8 @@
             margin-bottom: 30px;
             border: 1px solid #ccc;
             padding: 15px;
+            background: white;
+            border-radius: 8px;
         }
 
         .video-list {
@@ -36,52 +40,85 @@
             padding: 10px;
             background: #f9f9f9;
             border: 1px solid #ddd;
+            border-radius: 4px;
         }
 
         .video-item a {
             text-decoration: none;
             color: blue;
         }
+
+        .progress-container {
+            margin-top: 15px;
+            display: none;
+        }
+
+        progress {
+            width: 100%;
+            height: 20px;
+        }
+
+        #percentage {
+            font-size: 0.9rem;
+            color: #666;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .list-section h3 {
+            margin-top: 25px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #ddd;
+            color: #444;
+        }
+
+        .video-item {
+            transition: background 0.2s;
+        }
+
+        .video-item:hover {
+            background: #e9ecef;
+        }
+
+        .video-item a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: 5px;
+        }
     </style>
-    <link rel="stylesheet" href="login.css">
 </head>
 
 <body>
-    <!-- Login Overlay -->
-    <div id="loginOverlay">
-        <div class="login-card">
-            <h2>Login</h2>
-            <div class="input-group">
-                <label for="regNo">Register Number</label>
-                <input type="text" id="regNo" placeholder="12-digit number" maxlength="12">
-            </div>
-            <div class="input-group">
-                <label for="wifiPass">College Wi-Fi Password</label>
-                <input type="password" id="wifiPass" placeholder="Enter password">
-            </div>
-            <button class="login-btn" onclick="login()">Login</button>
-            <p id="loginError"></p>
-        </div>
-    </div>
-
-    <div id="mainContent" class="hidden">
+    <div id="mainContent">
         <div class="container">
             <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                <h1>1 movie perday keeps depression away</h1>
-                <button onclick="logout()"
-                    style="padding: 8px 16px; border-radius: 8px; border: 1px solid #ddd; cursor: pointer;">Logout</button>
+                <h1>LAN File Share</h1>
             </header>
 
             <div class="upload-section">
-                <h3>Upload Video</h3>
-                <input type="file" id="videoInput" accept="video/*">
-                <button onclick="uploadVideo()">Upload</button>
+                <h3>Upload File</h3>
+                <input type="file" id="fileInput">
+                <button onclick="uploadFile()">Upload</button>
+                <div class="progress-container" id="progressContainer">
+                    <progress id="progressBar" value="0" max="100"></progress>
+                    <span id="percentage">0%</span>
+                </div>
                 <p id="status"></p>
             </div>
 
             <div class="list-section">
-                <h3>Available Videos</h3>
+                <h3>Videos</h3>
                 <ul id="videoList" class="video-list"></ul>
+
+                <h3>Audio</h3>
+                <ul id="audioList" class="video-list"></ul>
+
+                <h3>Images</h3>
+                <ul id="imagesList" class="video-list"></ul>
+
+                <h3>Others</h3>
+                <ul id="othersList" class="video-list"></ul>
             </div>
         </div>
     </div>
