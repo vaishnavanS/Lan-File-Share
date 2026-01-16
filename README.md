@@ -1,11 +1,11 @@
-# 🎬 1 movie perday keeps depression away
+# 📁 LAN File Share
 
-A simple LAN-based video sharing application. This application allows users on the same Wi-Fi network to upload and download movies easily.
+A simple LAN-based file sharing application. This application allows users on the same Wi-Fi network to upload and download any files easily.
 
 ## ✨ Features
 
 - **LAN Sharing**: Share files with anyone connected to the same Wi-Fi network.
-- **Simple Uploads**: Easy-to-use interface for uploading `.mp4` and other video files.
+- **Simple Uploads**: Easy-to-use interface for uploading all types of files.
 - **Fast Access**: No complex setup required—just connect and share.
 
 ## 🚀 Getting Started
@@ -48,4 +48,4 @@ A simple LAN-based video sharing application. This application allows users on t
 
 - `server.js`: The backend logic and API endpoints.
 - `public/`: Contains the frontend assets (HTML, CSS, JS).
-- `uploads/`: Directory where movies are stored.
+- `uploads/`: Directory where files are stored.
