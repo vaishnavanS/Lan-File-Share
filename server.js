@@ -132,6 +132,11 @@ app.use((err, req, res, next) => {
     res.status(500).json({ message: "Server error occurred", error: err.message });
 });
 
-app.listen(3000, "0.0.0.0", () => {
+const server = app.listen(3000, "0.0.0.0", () => {
     console.log("Server running on port 3000");
 });
+
+// Optimization for large file uploads/downloads
+server.timeout = 0; // Disable automatic timeout
+server.keepAliveTimeout = 120000; // 2 minutes
+server.headersTimeout = 125000; // slightly higher than keepAliveTimeout
